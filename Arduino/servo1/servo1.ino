@@ -10,8 +10,8 @@ void setup() {
 
 void loop() {
 
-  ser1.wrtie(0);
-  delay(3000):
+  ser1.write(0);
+  delay(3000);
   ser1.write(90);
   delay(3000);
 
