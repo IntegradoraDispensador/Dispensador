@@ -11,8 +11,8 @@ void setup() {
 void loop() {
 
   ser1.write(0);
-  delay(3000);
-  ser1.write(90);
-  delay(3000);
+  delay(25000);
+  ser1.write(150);
+  delay(10000);
 
 }
