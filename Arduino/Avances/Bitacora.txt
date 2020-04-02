@@ -1,0 +1,16 @@
+Bitacora 
+
+Dia Miercoles 01 de Abril de 2020
+
+Resumen
+
+Utilizamos un taladro para apuntalar mejor el recipiente en la madera.
+
+Quitamos los alambres y la lata de aluminio para integrar una lata tipo de elotes
+de un material mas duro, para evitar movimientos
+
+Integramos el sensor ultrasónico arriba del recipiente, para medir la cantidad de 
+croquetas.
+
+Tanto el sensor ultrasónico como el servomotor funcionan adecuadamente
+
