@@ -1,8 +1,7 @@
 Bitacora 
 
-Dia Miercoles 01 de Abril de 2020
+--Dia Miercoles 01 de Abril de 2020--
 
-Resumen
 
 Utilizamos un taladro para apuntalar mejor el recipiente en la madera.
 
@@ -13,4 +12,21 @@ Integramos el sensor ultrasónico arriba del recipiente, para medir la cantidad d
 croquetas.
 
 Tanto el sensor ultrasónico como el servomotor funcionan adecuadamente
+
+--Dia Jueves 02 de Abril de 2020--
+
+Fuimos a que nos emparejaran la madera a una carpintería
+
+Estuvimos probando tipo atomizadores para hacer la bomba de agua con un servomotor
+
+Compramos mangueras y estuvimos probando que el agua si pasara correctamente con las
+opciones de atomizador que teniamos.
+
+Probamos el rfID con el node mcu para que leyera la tarjeta.
+
+--Dia Viernes 03 de Abril de 2020--
+
+Integramos un servomotor de 15 kg para que empuje el atomizador y este vaya llenando 
+de agua y vaciandolo en otro recipiente.
+
 
