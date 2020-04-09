@@ -63,6 +63,11 @@ public class RetrofitBuilder {
         return  retrofit.create(service);
     }
 
+    public static  Retrofit getRetrofit(){
+        return retrofit;
+    }
+
+
 
 
 

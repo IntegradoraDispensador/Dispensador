@@ -45,6 +45,9 @@ dependencies {
 
     debugImplementation 'com.squareup.leakcanary:leakcanary-android:2.2'
 
+    implementation 'com.basgeekball:awesome-validation:4.2'
+
+
 
 
 
