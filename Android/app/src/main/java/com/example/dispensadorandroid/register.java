@@ -15,6 +15,7 @@ import com.example.dispensadorandroid.entities.AccessToken;
 import com.example.dispensadorandroid.entities.ApiError;
 import com.example.dispensadorandroid.network.ApiService;
 import com.example.dispensadorandroid.network.RetrofitBuilder;
+import com.google.android.material.textfield.TextInputLayout;
 
 import java.io.IOException;
 import java.lang.annotation.Annotation;
@@ -37,13 +38,15 @@ public class register extends AppCompatActivity {
     private static final String TAG = "Register";
 
     @BindView(R.id.input_name)
-    EditText inputname;
+    TextInputLayout inputname;
+
 
     @BindView(R.id.input_email)
-    EditText inputemail;
+    TextInputLayout inputemail;
+
 
     @BindView(R.id.input_password)
-    EditText inputpassword;
+    TextInputLayout inputpassword;
 
     ApiService service;
     Call<AccessToken> call;
@@ -70,9 +73,9 @@ public class register extends AppCompatActivity {
     @OnClick(R.id.btn_signup)
     void register() {
 
-        String name = inputname.getText().toString();
-        String email = inputemail.getText().toString();
-        String password = inputpassword.getText().toString();
+        String name = inputname.getEditText().getText().toString();
+        String email = inputemail.getEditText().getText().toString();
+        String password = inputpassword.getEditText().getText().toString();
 
         inputname.setError(null);
         inputemail.setError(null);
@@ -90,7 +93,7 @@ public class register extends AppCompatActivity {
 
                     Log.w(TAG, "on response: " + response);
                     if (response.isSuccessful()) {
-                        
+
                         Log.w(TAG, "on response: " + response.body());
 
                         tokenManager.saveToken(response.body());
