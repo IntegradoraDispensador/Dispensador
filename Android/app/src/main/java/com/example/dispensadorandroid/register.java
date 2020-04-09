@@ -48,6 +48,7 @@ public class register extends AppCompatActivity {
     ApiService service;
     Call<AccessToken> call;
     AwesomeValidation validator;
+    TokenManager tokenManager;
 
 
     @Override
@@ -60,6 +61,8 @@ public class register extends AppCompatActivity {
         service = RetrofitBuilder.CreateService(ApiService.class);
 
         validator = new AwesomeValidation(ValidationStyle.TEXT_INPUT_LAYOUT);
+
+        tokenManager = TokenManager.getInstance(getSharedPreferences("prefs", MODE_PRIVATE));
 
         setupRules();
     }
@@ -87,6 +90,10 @@ public class register extends AppCompatActivity {
 
                     Log.w(TAG, "on response: " + response);
                     if (response.isSuccessful()) {
+                        
+                        Log.w(TAG, "on response: " + response.body());
+
+                        tokenManager.saveToken(response.body());
 
                     } else {
 
