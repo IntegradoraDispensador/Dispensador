@@ -5,4 +5,5 @@
     <string name="err_name">"The name field is required</string>
     <string name="err_email">"The email field is required</string>
     <string name="err_password">"The password field is required</string>
+    <string name="err_password_confirmation">"The password confirmation field is required</string>
 </resources>

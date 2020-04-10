@@ -4,7 +4,8 @@ import android.app.Application;
 
 import com.facebook.stetho.Stetho;
 
-import leakcanary.LeakCanary;
+
+
 
 public class MyApp extends Application {
 
@@ -15,6 +16,8 @@ public class MyApp extends Application {
         super.onCreate();
 
         Stetho.initializeWithDefaults(this);
+
+
 
 
 

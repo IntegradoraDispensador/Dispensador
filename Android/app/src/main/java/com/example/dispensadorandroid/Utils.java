@@ -17,7 +17,7 @@ public class Utils {
 
         ApiError apiError = null;
         try{
-            ApiError ApiError = converter.convert(response);
+            apiError = converter.convert(response);
         } catch (IOException e){
             e.printStackTrace();
         }
