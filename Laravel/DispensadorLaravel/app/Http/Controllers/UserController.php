@@ -50,4 +50,12 @@ class UserController extends Controller
 
     return $this->sendFailedLoginResponse($request);
 }
+
+    public function users(){
+
+        $users = User::all();
+
+        return response()->json($users, 200);
+
+    }
 }

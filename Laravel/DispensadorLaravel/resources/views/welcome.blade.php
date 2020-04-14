@@ -6,6 +6,8 @@
 
         <title>Laravel</title>
 
+       <h2>{{ config('app.url')}}</h2> 
+
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
 

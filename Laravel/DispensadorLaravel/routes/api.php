@@ -34,3 +34,5 @@ Route::group(['prefix' => 'auth'], function () {
         Route::get('user', 'AuthController@user');
     });
 });
+
+Route::get('users', 'UserController@users');

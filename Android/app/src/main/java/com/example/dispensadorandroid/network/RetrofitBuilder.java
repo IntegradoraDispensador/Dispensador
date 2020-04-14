@@ -16,7 +16,9 @@ import retrofit2.converter.moshi.MoshiConverterFactory;
 
 public class RetrofitBuilder {
 
-    private static final String BASE_URL = "http://127.0.0.1:2000/api/auth/";
+    private static final String BASE_URL = "http://192.168.0.19:8000/api/auth/";
+
+
 
     private final static OkHttpClient client = buildClient();
 
