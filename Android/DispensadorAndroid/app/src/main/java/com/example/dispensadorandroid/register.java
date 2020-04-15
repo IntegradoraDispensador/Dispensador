@@ -134,6 +134,10 @@ public class register extends AppCompatActivity {
     }
 
 
+
+
+
+
         public void handleErrors (ResponseBody response){
 
             ApiError apiError = Utils.convertErrors(response);
