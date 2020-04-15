@@ -1,4 +1,4 @@
-package com.example.retrofitdos.Models.Servomotor;
+package com.example.retrofitdos.Model;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
@@ -27,4 +27,5 @@ public class Owner {
     public void setUsername(String username) {
         this.username = username;
     }
+
 }

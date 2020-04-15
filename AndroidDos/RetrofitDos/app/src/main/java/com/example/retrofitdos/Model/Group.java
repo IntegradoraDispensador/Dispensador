@@ -1,4 +1,4 @@
-package com.example.retrofitdos.Models.Servomotor;
+package com.example.retrofitdos.Model;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
@@ -49,4 +49,5 @@ public class Group {
     public void setUserId(Integer userId) {
         this.userId = userId;
     }
+
 }

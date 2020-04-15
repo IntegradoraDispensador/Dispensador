@@ -9,7 +9,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.retrofitdos.Interface.Adafruit;
-import com.example.retrofitdos.Models.Servomotor.Example;
+import com.example.retrofitdos.Model.Example;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -22,7 +22,7 @@ public class MainActivity extends AppCompatActivity {
     private TextView mjsonText;
 
 
-    public String token = "aio_oOmk46UrCwESAcw9Rdr3ZHYlzIpC";
+    public String token = "aio_RNYD91DdU7OQxzD9aS8xw5oomCfX";
     public String username = "ubaldo01";
 
     @Override
@@ -44,13 +44,15 @@ public class MainActivity extends AppCompatActivity {
         private void getDistancia() {
 
             Retrofit retrofit = new Retrofit.Builder()
-                    .baseUrl("https://io.adafruit.com/api/v2/ubaldo01/feeds/")
+                    .baseUrl("https://io.adafruit.com/api/v2/ubaldo01/feeds/onoff/")
                     .addConverterFactory(GsonConverterFactory.create())
                     .build();
 
             Adafruit adafruit = retrofit.create(Adafruit.class);
 
-            Call<Example> call = adafruit.getDistancia(token);
+            Example example = new Example("ON");
+
+            Call<Example> call = adafruit.getDistancia(example, token);
 
             call.enqueue(new Callback<Example>() {
                 @Override
@@ -63,9 +65,13 @@ public class MainActivity extends AppCompatActivity {
                         return ;
                     }
 
-                    response.body().setLastValue("500");
+                    //response.body().setValue("OFF");
 
-                    Toast.makeText(MainActivity.this,response.body().getLastValue().toString(),Toast.LENGTH_LONG).show();
+                  //  example = response.body();
+                    //response.body().setValue("OFF");
+
+
+                    Toast.makeText(MainActivity.this,response.body().getValue(),Toast.LENGTH_LONG).show();
 
 
                 }
