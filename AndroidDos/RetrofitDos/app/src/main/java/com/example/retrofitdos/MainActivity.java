@@ -21,8 +21,7 @@ public class MainActivity extends AppCompatActivity {
 
     private TextView mjsonText;
 
-
-    public String token = "aio_RNYD91DdU7OQxzD9aS8xw5oomCfX";
+    public String token = "aio_Hkmc81RVOLmMjLnUBJGIVB2doE4U";
     public String username = "ubaldo01";
 
     @Override
@@ -39,51 +38,79 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        Button botonDos = (Button) findViewById(R.id.botonDos);
+        botonDos.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                getDistanciaDos();
+            }
+        });
+
     }
 
-        private void getDistancia() {
+    private void getDistanciaDos() {
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl("https://io.adafruit.com/api/v2/ubaldo01/feeds/onoff/")
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
 
-            Retrofit retrofit = new Retrofit.Builder()
-                    .baseUrl("https://io.adafruit.com/api/v2/ubaldo01/feeds/onoff/")
-                    .addConverterFactory(GsonConverterFactory.create())
-                    .build();
+        Adafruit adafruit = retrofit.create(Adafruit.class);
 
-            Adafruit adafruit = retrofit.create(Adafruit.class);
+        Example example = new Example("OFF");
 
-            Example example = new Example("ON");
+        Call<Example> call = adafruit.getDistancia(example, token);
 
-            Call<Example> call = adafruit.getDistancia(example, token);
-
-            call.enqueue(new Callback<Example>() {
-                @Override
-                public void onResponse(Call<Example> call, Response<Example> response) {
-
-
-
-                    if (!response.isSuccessful()){
-                        mjsonText.setText("Codigo: " + response.body());
-                        return ;
-                    }
-
-                    //response.body().setValue("OFF");
-
-                  //  example = response.body();
-                    //response.body().setValue("OFF");
-
-
-                    Toast.makeText(MainActivity.this,response.body().getValue(),Toast.LENGTH_LONG).show();
-
-
+        call.enqueue(new Callback<Example>() {
+            @Override
+            public void onResponse(Call<Example> call, Response<Example> response) {
+                if (!response.isSuccessful()){
+                    mjsonText.setText("Codigo: " + response.body());
+                    return ;
                 }
 
-                @Override
-                public void onFailure(Call<Example> call, Throwable t) {
-
-                    mjsonText.setText(t.getMessage());
-                    Toast.makeText(MainActivity.this,"Error", Toast.LENGTH_SHORT).show();
-
-
-                }
-            });
+                Toast.makeText(MainActivity.this,response.body().getValue(),Toast.LENGTH_LONG).show();
+            }
+            @Override
+            public void onFailure(Call<Example> call, Throwable t) {
+                mjsonText.setText(t.getMessage());
+                Toast.makeText(MainActivity.this,"Error", Toast.LENGTH_SHORT).show();
+            }
+        });
     }
+
+
+
+    private void getDistancia() {
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl("https://io.adafruit.com/api/v2/ubaldo01/feeds/onoff/")
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+
+        Adafruit adafruit = retrofit.create(Adafruit.class);
+
+        Example example = new Example("ON");
+
+        Call<Example> call = adafruit.getDistancia(example, token);
+
+        call.enqueue(new Callback<Example>() {
+            @Override
+            public void onResponse(Call<Example> call, Response<Example> response) {
+                if (!response.isSuccessful()){
+                    mjsonText.setText("Codigo: " + response.body());
+                    return ;
+                }
+
+                Toast.makeText(MainActivity.this,response.body().getValue(),Toast.LENGTH_LONG).show();
+            }
+            @Override
+            public void onFailure(Call<Example> call, Throwable t) {
+                mjsonText.setText(t.getMessage());
+                Toast.makeText(MainActivity.this,"Error", Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+
+
+
 }
