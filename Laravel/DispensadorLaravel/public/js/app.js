@@ -1955,7 +1955,34 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-/* harmony default export */ __webpack_exports__["default"] = ({});
+/* harmony default export */ __webpack_exports__["default"] = ({
+  methods: {
+    postOn: function postOn() {
+      axios({
+        method: 'post',
+        url: '',
+        params: {
+          "X-AIO-Key": ""
+        },
+        data: {
+          value: 'ON'
+        }
+      });
+    },
+    postOff: function postOff() {
+      axios({
+        method: 'post',
+        url: '',
+        params: {
+          "X-AIO-Key": ""
+        },
+        data: {
+          value: 'OFF'
+        }
+      });
+    }
+  }
+});
 
 /***/ }),
 
@@ -37650,48 +37677,49 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
+  return _c("div", { staticClass: "container" }, [
+    _c("hr"),
+    _vm._v(" "),
+    _c("br"),
+    _vm._v(" "),
+    _c(
+      "button",
+      {
+        staticClass: "btn btn-primary btn-lg",
+        attrs: { type: "button" },
+        on: {
+          click: function($event) {
+            return _vm.postOn()
+          }
+        }
+      },
+      [_vm._v("Abrir croquetas")]
+    ),
+    _vm._v(" "),
+    _c(
+      "button",
+      { staticClass: "btn btn-secondary btn-lg", attrs: { type: "button" } },
+      [_vm._v("Cerrar croquetas")]
+    ),
+    _vm._v(" "),
+    _c(
+      "button",
+      { staticClass: "btn btn-primary btn-lg", attrs: { type: "button" } },
+      [_vm._v("Abrir agua")]
+    ),
+    _vm._v(" "),
+    _c(
+      "button",
+      { staticClass: "btn btn-secondary btn-lg", attrs: { type: "button" } },
+      [_vm._v("Cerrar agua")]
+    ),
+    _vm._v(" "),
+    _c("br"),
+    _vm._v(" "),
+    _c("hr")
+  ])
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "container" }, [
-      _c("hr"),
-      _vm._v(" "),
-      _c("br"),
-      _vm._v(" "),
-      _c(
-        "button",
-        { staticClass: "btn btn-primary btn-lg", attrs: { type: "button" } },
-        [_vm._v("Abrir croquetas")]
-      ),
-      _vm._v(" "),
-      _c(
-        "button",
-        { staticClass: "btn btn-secondary btn-lg", attrs: { type: "button" } },
-        [_vm._v("Cerrar croquetas")]
-      ),
-      _vm._v(" "),
-      _c(
-        "button",
-        { staticClass: "btn btn-primary btn-lg", attrs: { type: "button" } },
-        [_vm._v("Abrir agua")]
-      ),
-      _vm._v(" "),
-      _c(
-        "button",
-        { staticClass: "btn btn-secondary btn-lg", attrs: { type: "button" } },
-        [_vm._v("Cerrar agua")]
-      ),
-      _vm._v(" "),
-      _c("br"),
-      _vm._v(" "),
-      _c("hr")
-    ])
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 
 
