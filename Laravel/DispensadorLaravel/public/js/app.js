@@ -1962,19 +1962,43 @@ __webpack_require__.r(__webpack_exports__);
         method: 'post',
         url: 'https://io.adafruit.com/api/v2/ubaldo01/feeds/onoff/data',
         params: {
-          "X-AIO-Key": "aio_KfQC74y4LVhmdquHPpXkN0yYbEde"
+          "X-AIO-Key": "aio_pHjQ04DaljjLSM6O4dgdWzXO7jNj"
         },
         data: {
-          "value": 'OFF'
+          "value": 'ON'
         }
       });
     },
     postOff: function postOff() {
       axios({
         method: 'post',
-        url: '',
+        url: 'https://io.adafruit.com/api/v2/ubaldo01/feeds/onoff/data',
         params: {
-          "X-AIO-Key": ""
+          "X-AIO-Key": "aio_pHjQ04DaljjLSM6O4dgdWzXO7jNj"
+        },
+        data: {
+          value: 'OFF'
+        }
+      });
+    },
+    aguaOn: function aguaOn() {
+      axios({
+        method: 'post',
+        url: 'https://io.adafruit.com/api/v2/GerardoDM/feeds/agua/data',
+        params: {
+          "X-AIO-Key": "aio_EaMk439i6cotrfXp0Prmaev7ncKa"
+        },
+        data: {
+          value: 'ON'
+        }
+      });
+    },
+    aguaOff: function aguaOff() {
+      axios({
+        method: 'post',
+        url: 'https://io.adafruit.com/api/v2/GerardoDM/feeds/agua/data',
+        params: {
+          "X-AIO-Key": "aio_EaMk439i6cotrfXp0Prmaev7ncKa"
         },
         data: {
           value: 'OFF'
@@ -37698,19 +37722,43 @@ var render = function() {
     _vm._v(" "),
     _c(
       "button",
-      { staticClass: "btn btn-secondary btn-lg", attrs: { type: "button" } },
+      {
+        staticClass: "btn btn-secondary btn-lg",
+        attrs: { type: "button" },
+        on: {
+          click: function($event) {
+            return _vm.postOff()
+          }
+        }
+      },
       [_vm._v("Cerrar croquetas")]
     ),
     _vm._v(" "),
     _c(
       "button",
-      { staticClass: "btn btn-primary btn-lg", attrs: { type: "button" } },
+      {
+        staticClass: "btn btn-primary btn-lg",
+        attrs: { type: "button" },
+        on: {
+          click: function($event) {
+            return _vm.aguaOn()
+          }
+        }
+      },
       [_vm._v("Abrir agua")]
     ),
     _vm._v(" "),
     _c(
       "button",
-      { staticClass: "btn btn-secondary btn-lg", attrs: { type: "button" } },
+      {
+        staticClass: "btn btn-secondary btn-lg",
+        attrs: { type: "button" },
+        on: {
+          click: function($event) {
+            return _vm.aguaOff()
+          }
+        }
+      },
       [_vm._v("Cerrar agua")]
     ),
     _vm._v(" "),

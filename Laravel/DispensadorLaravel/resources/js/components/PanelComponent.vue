@@ -21,7 +21,7 @@ export default {
                 method: 'post',
                 url: 'https://io.adafruit.com/api/v2/ubaldo01/feeds/onoff/data',
                  params: {
-                    "X-AIO-Key" : "aio_KfQC74y4LVhmdquHPpXkN0yYbEde"
+                    "X-AIO-Key" : "aio_pHjQ04DaljjLSM6O4dgdWzXO7jNj"
                         },
                 data: {
                     "value" : 'ON',
@@ -35,7 +35,7 @@ export default {
                 method: 'post',
                 url: 'https://io.adafruit.com/api/v2/ubaldo01/feeds/onoff/data',
                 params: {
-                    "X-AIO-Key" : ""
+                    "X-AIO-Key" : "aio_pHjQ04DaljjLSM6O4dgdWzXO7jNj"
                         },
                 data: {
                     value: 'OFF',
@@ -47,9 +47,9 @@ export default {
          aguaOn(){
             axios({
                 method: 'post',
-                url: 'https://io.adafruit.com/api/v2/ubaldo01/feeds/onoff/data',
+                url: 'https://io.adafruit.com/api/v2/GerardoDM/feeds/agua/data',
                 params: {
-                    "X-AIO-Key" : ""
+                    "X-AIO-Key" : "aio_EaMk439i6cotrfXp0Prmaev7ncKa"
                         },
                 data: {
                     value: 'ON',
@@ -61,9 +61,9 @@ export default {
          aguaOff(){
             axios({
                 method: 'post',
-                url: 'https://io.adafruit.com/api/v2/ubaldo01/feeds/onoff/data',
+                url: 'https://io.adafruit.com/api/v2/GerardoDM/feeds/agua/data',
                 params: {
-                    "X-AIO-Key" : ""
+                    "X-AIO-Key" : "aio_EaMk439i6cotrfXp0Prmaev7ncKa"
                         },
                 data: {
                     value: 'OFF',
