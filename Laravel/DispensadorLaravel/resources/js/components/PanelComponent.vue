@@ -9,6 +9,7 @@
             <br>
             <hr>
 
+            <div style="height: 800px; overflow-y: scroll">
             <table class="table table-dark">
             <thead>
                 <tr>
@@ -28,6 +29,7 @@
                 
                 </tbody>
                 </table>
+                </div>
 
 
       
@@ -57,6 +59,7 @@ export default {
                 url: 'https://io.adafruit.com/api/v2/ubaldo01/feeds/onoff/data',
                  params: {
                     "X-AIO-Key" : "aio_pHjQ04DaljjLSM6O4dgdWzXO7jNj"
+                   
                         },
                 data: {
                     "value" : 'ON',
@@ -112,9 +115,10 @@ export default {
              let self = this;
             axios({
                 method: 'get',
-                url: 'https://io.adafruit.com/api/v2/ubaldo01/feeds/ultrasonico/data',
+                url: 'https://io.adafruit.com/api/v2/ubaldo01/feeds/ultrasonico/data/?_limit=10',
                  params: {
                     "X-AIO-Key" : "aio_oPUI61fBuw2KPc0CoSSTafNQ2Qss"
+                     
                         },
                 })
                 .then(function (response) {

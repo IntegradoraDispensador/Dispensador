@@ -1977,6 +1977,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -2039,7 +2041,7 @@ __webpack_require__.r(__webpack_exports__);
       var self = this;
       axios({
         method: 'get',
-        url: 'https://io.adafruit.com/api/v2/ubaldo01/feeds/ultrasonico/data',
+        url: 'https://io.adafruit.com/api/v2/ubaldo01/feeds/ultrasonico/data/?_limit=10',
         params: {
           "X-AIO-Key": "aio_oPUI61fBuw2KPc0CoSSTafNQ2Qss"
         }
@@ -37809,20 +37811,22 @@ var render = function() {
     _vm._v(" "),
     _c("hr"),
     _vm._v(" "),
-    _c("table", { staticClass: "table table-dark" }, [
-      _vm._m(0),
-      _vm._v(" "),
-      _c(
-        "tbody",
-        _vm._l(_vm.response.data, function(response) {
-          return _c("tr", { key: response.id }, [
-            _c("td", [_vm._v(_vm._s(response.value))]),
-            _vm._v(" "),
-            _c("td", [_vm._v(_vm._s(response.created_at))])
-          ])
-        }),
-        0
-      )
+    _c("div", { staticStyle: { height: "800px", "overflow-y": "scroll" } }, [
+      _c("table", { staticClass: "table table-dark" }, [
+        _vm._m(0),
+        _vm._v(" "),
+        _c(
+          "tbody",
+          _vm._l(_vm.response.data, function(response) {
+            return _c("tr", { key: response.id }, [
+              _c("td", [_vm._v(_vm._s(response.value))]),
+              _vm._v(" "),
+              _c("td", [_vm._v(_vm._s(response.created_at))])
+            ])
+          }),
+          0
+        )
+      ])
     ])
   ])
 }
