@@ -8,12 +8,47 @@
             <button type="button" v-on:click="aguaOff()" class="btn btn-secondary btn-lg">Cerrar agua</button>
             <br>
             <hr>
+
+            <table class="table table-dark">
+            <thead>
+                <tr>
+                
+                <th scope="col">Distancia en cm</th>
+                <th scope="col">Fecha de Registro</th>
+                
+                </tr>
+            </thead>
+            <tbody>
+                <tr v-for="response in response.data" :key="response.id">
+                <td>{{response.value}}</td>
+                <td>{{response.created_at}}</td>
+                
+                </tr>
+            
+                
+                </tbody>
+                </table>
+
+
       
         </div>
 </template>
 
 <script>
 export default {
+
+    data() {
+     return {
+
+         response :[],
+        
+     }
+    },
+    created(){
+          this.getDistancia();
+        },
+
+
     methods: {
 
         postOn(){
@@ -70,6 +105,23 @@ export default {
                     
                     }
                 });   
+        },
+
+        getDistancia(){
+
+             let self = this;
+            axios({
+                method: 'get',
+                url: 'https://io.adafruit.com/api/v2/ubaldo01/feeds/ultrasonico/data',
+                 params: {
+                    "X-AIO-Key" : "aio_oPUI61fBuw2KPc0CoSSTafNQ2Qss"
+                        },
+                })
+                .then(function (response) {
+
+                     self.response = response;
+                    console.log(response.data)
+                });
         }
 
     }
