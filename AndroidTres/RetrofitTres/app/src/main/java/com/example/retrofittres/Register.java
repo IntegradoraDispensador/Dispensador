@@ -48,8 +48,7 @@ public class Register extends AppCompatActivity {
     @BindView(R.id.input_password)
     EditText inputpassword;
 
-    @BindView(R.id.input_password_confirmation)
-    EditText inputpassword_confirmation;
+
 
 
 
@@ -83,24 +82,24 @@ public class Register extends AppCompatActivity {
     @OnClick(R.id.btn_signup)
     void registeruser() {
 
-        Toast.makeText(this, "Hola", Toast.LENGTH_LONG).show();
+       // Toast.makeText(this, "Hola", Toast.LENGTH_LONG).show();
 
         String name = inputname.getText().toString();
         String email = inputemail.getText().toString();
         String password = inputpassword.getText().toString();
-        String password_confirmation = inputpassword_confirmation.getText().toString();
+
 
         inputname.setError(null);
         inputemail.setError(null);
         inputpassword.setError(null);
-        inputpassword_confirmation.setError(null);
+
 
         validator.clear();
 
 
         if (validator.validate()) {
 
-            call = service.signup(name, email, password, password_confirmation);
+            call = service.signup(name, email, password);
             call.enqueue(new Callback<AccessToken>() {
                 @Override
                 public void onResponse(Call<AccessToken> call, Response<AccessToken> response) {
@@ -109,9 +108,14 @@ public class Register extends AppCompatActivity {
                     Log.w(TAG, "onResponse: " + response);
                     if (response.isSuccessful()) {
 
+                        Toast.makeText(getApplicationContext(), "Success", Toast.LENGTH_LONG).show();
+
                         Log.w(TAG, "onResponse: " + response.body());
 
                         tokenManager.saveToken(response.body());
+                        startActivity(new Intent(Register.this, BotonesActivity.class));
+                        finish();
+
 
                     } else {
 
@@ -122,6 +126,9 @@ public class Register extends AppCompatActivity {
 
                 @Override
                 public void onFailure(Call<AccessToken> call, Throwable t) {
+
+                    Toast.makeText(getApplicationContext(), t.getMessage(), Toast.LENGTH_LONG).show();
+
 
                     Log.w(TAG, "onFailure: " + t.getMessage());
 
@@ -157,9 +164,7 @@ public class Register extends AppCompatActivity {
                 inputpassword.setError(error.getValue().get(0));
             }
 
-            if (error.getKey().equals("password_confirmation")) {
-                inputpassword_confirmation.setError(error.getValue().get(0));
-            }
+
         }
 
     }
@@ -168,7 +173,6 @@ public class Register extends AppCompatActivity {
         validator.addValidation(this, R.id.input_name, RegexTemplate.NOT_EMPTY, R.string.err_name);
         validator.addValidation(this, R.id.input_email, Patterns.EMAIL_ADDRESS, R.string.err_email);
         validator.addValidation(this, R.id.input_password, RegexTemplate.NOT_EMPTY, R.string.err_password);
-        validator.addValidation(this, R.id.input_password_confirmation, RegexTemplate.NOT_EMPTY, R.string.err_password_confirmation);
     }
 
     @Override

@@ -47,7 +47,7 @@ export default {
      }
     },
     created(){
-          this.getDistancia();
+          this.getUltrasonico();
         },
 
 
@@ -115,9 +115,31 @@ export default {
              let self = this;
             axios({
                 method: 'get',
-                url: 'https://io.adafruit.com/api/v2/ubaldo01/feeds/ultrasonico/data/?_limit=10',
+                url: 'https://io.adafruit.com/api/v2/ubaldo01/feeds/ultrasonico/data',
                  params: {
-                    "X-AIO-Key" : "aio_oPUI61fBuw2KPc0CoSSTafNQ2Qss"
+                    "X-AIO-Key" : "aio_TAPe68HndORlKq8E1Iv20EDtNLOS",
+                    "limit" : 50
+
+                     
+                        },
+                })
+                .then(function (response) {
+
+                     self.response = response;
+                    console.log(response.data)
+                });
+        },
+
+         getUltrasonico(){
+
+             let self = this;
+            axios({
+                method: 'get',
+                url: 'api/ultrasonico',
+                 params: {
+                 
+                    "limit" : 50
+
                      
                         },
                 })

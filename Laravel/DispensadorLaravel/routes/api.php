@@ -37,4 +37,8 @@ Route::group(['prefix' => 'auth'], function () {
 
 Route::get('users', 'UserController@users');
 
+Route::get('ultrasonico', 'ApiController@getUltrasonico');
+
+//Route::post('tokens', 'ApiController@setAdafruitToken');
+
 //aio_oPUI61fBuw2KPc0CoSSTafNQ2Qss

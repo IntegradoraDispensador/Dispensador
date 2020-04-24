@@ -33,10 +33,6 @@ public class Login extends AppCompatActivity {
     private static final String TAG = "Login";
 
 
-    @BindView(R.id.input_name)
-    EditText inputname;
-
-
     @BindView(R.id.input_email)
     EditText inputemail;
 
@@ -66,11 +62,10 @@ public class Login extends AppCompatActivity {
     @OnClick(R.id.btn_login)
     void login(){
 
-        String name = inputname.getText().toString();
+
         String email = inputemail.getText().toString();
         String password = inputpassword.getText().toString();
 
-        inputname.setError(null);
         inputemail.setError(null);
         inputpassword.setError(null);
 
@@ -78,7 +73,7 @@ public class Login extends AppCompatActivity {
 
         if (validator.validate()){
 
-        call = service.login(name,email,password);
+        call = service.login(email,password);
         call.enqueue(new Callback<AccessToken>() {
             @Override
             public void onResponse(Call<AccessToken> call, Response<AccessToken> response) {
@@ -88,6 +83,8 @@ public class Login extends AppCompatActivity {
                 if (response.isSuccessful()){
 
                     tokenManager.saveToken(response.body());
+                    startActivity(new Intent(Login.this, BotonesActivity.class));
+                    finish();
 
 
                 } else{
@@ -125,9 +122,6 @@ public class Login extends AppCompatActivity {
         ApiError apiError = Utils.convertErrors(response);
 
         for (Map.Entry<String, List<String>> error : apiError.getErrors().entrySet()) {
-            if (error.getKey().equals("name")) {
-                inputname.setError(error.getValue().get(0));
-            }
 
             if (error.getKey().equals("email")) {
                 inputemail.setError(error.getValue().get(0));
@@ -143,7 +137,6 @@ public class Login extends AppCompatActivity {
     }
 
     public void setupRules () {
-        validator.addValidation(this, R.id.input_name, RegexTemplate.NOT_EMPTY, R.string.err_name);
         validator.addValidation(this, R.id.input_email, Patterns.EMAIL_ADDRESS, R.string.err_email);
         validator.addValidation(this, R.id.input_password, RegexTemplate.NOT_EMPTY, R.string.err_password);
     }

@@ -21,6 +21,7 @@ window.Vue = require('vue');
 
 Vue.component('example-component', require('./components/ExampleComponent.vue').default);
 Vue.component('panel-component', require('./components/PanelComponent.vue').default);
+Vue.component('token-component', require('./components/TokenComponent.vue').default);
 
 
 /**

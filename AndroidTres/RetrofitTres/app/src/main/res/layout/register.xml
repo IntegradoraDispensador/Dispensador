@@ -31,12 +31,6 @@
         android:inputType="textPassword"
         android:hint="Password"/>
 
-    <EditText android:id="@+id/input_password_confirmation"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:inputType="textPassword"
-        android:hint="Password Confirmation"/>
-
 
     <!-- Signup Button -->
     <Button
