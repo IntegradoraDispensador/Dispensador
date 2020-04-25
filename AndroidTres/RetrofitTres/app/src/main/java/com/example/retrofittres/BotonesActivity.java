@@ -23,8 +23,8 @@ public class BotonesActivity extends AppCompatActivity {
 
     private TextView mjsonText;
 
-    public String token = "aio_TAPe68HndORlKq8E1Iv20EDtNLOS";
-    public String tokenDos = "aio_OuaG21e1LNIio6zF1IrleZCZP0cx";
+    public String token = "aio_MJKy655V2CjnXX6z6tL6xfrEJM7c";
+    public String tokenDos = "aio_IUvL84xa2W8MWPU5LkBnsmRQRDx9";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

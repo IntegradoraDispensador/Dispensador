@@ -19,11 +19,11 @@ Route::get('tokens', function () {
     return view('tokens');
 });
 
-Route::get('prueba', function () {
-    return view('prueba');
-});
+//Route::get('prueba', function () {
+  //  return view('prueba');
+//});
 
-Route::get('setTokens','Apicontroller@getAdafruitToken');
-Route::post('tokens','Apicontroller@setAdafruitToken');
+//Route::get('setTokens','Apicontroller@getAdafruitToken');
+//Route::post('tokens','Apicontroller@setAdafruitToken');
 
 

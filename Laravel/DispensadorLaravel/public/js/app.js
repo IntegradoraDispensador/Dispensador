@@ -1989,68 +1989,6 @@ __webpack_require__.r(__webpack_exports__);
     this.getUltrasonico();
   },
   methods: {
-    postOn: function postOn() {
-      axios({
-        method: 'post',
-        url: 'https://io.adafruit.com/api/v2/ubaldo01/feeds/onoff/data',
-        params: {
-          "X-AIO-Key": "aio_pHjQ04DaljjLSM6O4dgdWzXO7jNj"
-        },
-        data: {
-          "value": 'ON'
-        }
-      });
-    },
-    postOff: function postOff() {
-      axios({
-        method: 'post',
-        url: 'https://io.adafruit.com/api/v2/ubaldo01/feeds/onoff/data',
-        params: {
-          "X-AIO-Key": "aio_pHjQ04DaljjLSM6O4dgdWzXO7jNj"
-        },
-        data: {
-          value: 'OFF'
-        }
-      });
-    },
-    aguaOn: function aguaOn() {
-      axios({
-        method: 'post',
-        url: 'https://io.adafruit.com/api/v2/GerardoDM/feeds/agua/data',
-        params: {
-          "X-AIO-Key": "aio_EaMk439i6cotrfXp0Prmaev7ncKa"
-        },
-        data: {
-          value: 'ON'
-        }
-      });
-    },
-    aguaOff: function aguaOff() {
-      axios({
-        method: 'post',
-        url: 'https://io.adafruit.com/api/v2/GerardoDM/feeds/agua/data',
-        params: {
-          "X-AIO-Key": "aio_EaMk439i6cotrfXp0Prmaev7ncKa"
-        },
-        data: {
-          value: 'OFF'
-        }
-      });
-    },
-    getDistancia: function getDistancia() {
-      var self = this;
-      axios({
-        method: 'get',
-        url: 'https://io.adafruit.com/api/v2/ubaldo01/feeds/ultrasonico/data',
-        params: {
-          "X-AIO-Key": "aio_TAPe68HndORlKq8E1Iv20EDtNLOS",
-          "limit": 50
-        }
-      }).then(function (response) {
-        self.response = response;
-        console.log(response.data);
-      });
-    },
     getUltrasonico: function getUltrasonico() {
       var self = this;
       axios({
@@ -2062,6 +2000,30 @@ __webpack_require__.r(__webpack_exports__);
       }).then(function (response) {
         self.response = response;
         console.log(response.data);
+      });
+    },
+    postOnGuzzle: function postOnGuzzle() {
+      axios({
+        method: 'post',
+        url: 'api/croquetasON'
+      });
+    },
+    postOffGuzzle: function postOffGuzzle() {
+      axios({
+        method: 'post',
+        url: 'api/croquetasOFF'
+      });
+    },
+    aguaOnGuzzle: function aguaOnGuzzle() {
+      axios({
+        method: 'post',
+        url: 'api/aguaON'
+      });
+    },
+    aguaOffGuzzle: function aguaOffGuzzle() {
+      axios({
+        method: 'post',
+        url: 'api/aguaOFF'
       });
     }
   }
@@ -37824,7 +37786,7 @@ var render = function() {
         attrs: { type: "button" },
         on: {
           click: function($event) {
-            return _vm.postOn()
+            return _vm.postOnGuzzle()
           }
         }
       },
@@ -37838,7 +37800,7 @@ var render = function() {
         attrs: { type: "button" },
         on: {
           click: function($event) {
-            return _vm.postOff()
+            return _vm.postOffGuzzle()
           }
         }
       },
@@ -37852,7 +37814,7 @@ var render = function() {
         attrs: { type: "button" },
         on: {
           click: function($event) {
-            return _vm.aguaOn()
+            return _vm.aguaOnGuzzle()
           }
         }
       },
@@ -37866,7 +37828,7 @@ var render = function() {
         attrs: { type: "button" },
         on: {
           click: function($event) {
-            return _vm.aguaOff()
+            return _vm.aguaOffGuzzle()
           }
         }
       },

@@ -24,7 +24,7 @@ public class UltrasonicoActivity extends AppCompatActivity {
 
     private TextView textViewResult;
 
-    public String token = "aio_TAPe68HndORlKq8E1Iv20EDtNLOS";
+    public String token = "aio_MJKy655V2CjnXX6z6tL6xfrEJM7c";
 
 
 

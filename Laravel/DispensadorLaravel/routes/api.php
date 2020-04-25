@@ -18,11 +18,11 @@ use Illuminate\Http\Request;
      return $request->user();
 });
 
-Route::post('register', 'UserController@register');
+//Route::post('register', 'UserController@register');
 
 //Route::post('login', 'UserController@login');
 
-Route::post('generate', 'UserController@generateToken');
+//Route::post('generate', 'UserController@generateToken');
 
 
 Route::group(['prefix' => 'auth'], function () {
@@ -38,6 +38,12 @@ Route::group(['prefix' => 'auth'], function () {
 Route::get('users', 'UserController@users');
 
 Route::get('ultrasonico', 'ApiController@getUltrasonico');
+
+Route::post('croquetasON', 'ApiController@postOn');
+Route::post('croquetasOFF', 'ApiController@postOff');
+
+Route::post('aguaON', 'ApiController@aguaOn');
+Route::post('aguaOFF', 'ApiController@aguaOff');
 
 //Route::post('tokens', 'ApiController@setAdafruitToken');
 

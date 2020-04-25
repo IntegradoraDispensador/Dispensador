@@ -45,20 +45,20 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    public function setAdafruitToken($token)
-    {
-        $this->token = $token;
-        if($this->save())
-        {
-            return response()->json(['message'=>'Exito','token'=>$this->getAdafruitToken()],200);
-        }
-        return response()->json(['message'=>'Error, intentelo de nuevo'],401);
-    }
+    // public function setAdafruitToken($token)
+    // {
+    //     $this->token = $token;
+    //     if($this->save())
+    //     {
+    //         return response()->json(['message'=>'Exito','token'=>$this->getAdafruitToken()],200);
+    //     }
+    //     return response()->json(['message'=>'Error, intentelo de nuevo'],401);
+    // }
 
-    public function getAdafruitToken()
-    {
-        return $this->token;
-    }
+    // public function getAdafruitToken()
+    // {
+    //     return $this->token;
+    // }
 
     
 }

@@ -2,10 +2,10 @@
         <div class="container">
             <hr>
             <br>
-            <button type="button" v-on:click="postOn()" class="btn btn-primary btn-lg">Abrir croquetas</button>
-            <button type="button" v-on:click="postOff()" class="btn btn-secondary btn-lg">Cerrar croquetas</button>
-            <button type="button" v-on:click="aguaOn()" class="btn btn-primary btn-lg">Abrir agua</button>
-            <button type="button" v-on:click="aguaOff()" class="btn btn-secondary btn-lg">Cerrar agua</button>
+            <button type="button" v-on:click="postOnGuzzle()" class="btn btn-primary btn-lg">Abrir croquetas</button>
+            <button type="button" v-on:click="postOffGuzzle()" class="btn btn-secondary btn-lg">Cerrar croquetas</button>
+            <button type="button" v-on:click="aguaOnGuzzle()" class="btn btn-primary btn-lg">Abrir agua</button>
+            <button type="button" v-on:click="aguaOffGuzzle()" class="btn btn-secondary btn-lg">Cerrar agua</button>
             <br>
             <hr>
 
@@ -53,83 +53,6 @@ export default {
 
     methods: {
 
-        postOn(){
-            axios({
-                method: 'post',
-                url: 'https://io.adafruit.com/api/v2/ubaldo01/feeds/onoff/data',
-                 params: {
-                    "X-AIO-Key" : "aio_pHjQ04DaljjLSM6O4dgdWzXO7jNj"
-                   
-                        },
-                data: {
-                    "value" : 'ON',
-                    
-                    }
-                });   
-        },
-
-         postOff(){
-            axios({
-                method: 'post',
-                url: 'https://io.adafruit.com/api/v2/ubaldo01/feeds/onoff/data',
-                params: {
-                    "X-AIO-Key" : "aio_pHjQ04DaljjLSM6O4dgdWzXO7jNj"
-                        },
-                data: {
-                    value: 'OFF',
-                    
-                    }
-                });   
-        },
-
-         aguaOn(){
-            axios({
-                method: 'post',
-                url: 'https://io.adafruit.com/api/v2/GerardoDM/feeds/agua/data',
-                params: {
-                    "X-AIO-Key" : "aio_EaMk439i6cotrfXp0Prmaev7ncKa"
-                        },
-                data: {
-                    value: 'ON',
-                    
-                    }
-                });   
-        },
-
-         aguaOff(){
-            axios({
-                method: 'post',
-                url: 'https://io.adafruit.com/api/v2/GerardoDM/feeds/agua/data',
-                params: {
-                    "X-AIO-Key" : "aio_EaMk439i6cotrfXp0Prmaev7ncKa"
-                        },
-                data: {
-                    value: 'OFF',
-                    
-                    }
-                });   
-        },
-
-        getDistancia(){
-
-             let self = this;
-            axios({
-                method: 'get',
-                url: 'https://io.adafruit.com/api/v2/ubaldo01/feeds/ultrasonico/data',
-                 params: {
-                    "X-AIO-Key" : "aio_TAPe68HndORlKq8E1Iv20EDtNLOS",
-                    "limit" : 50
-
-                     
-                        },
-                })
-                .then(function (response) {
-
-                     self.response = response;
-                    console.log(response.data)
-                });
-        },
-
          getUltrasonico(){
 
              let self = this;
@@ -148,6 +71,40 @@ export default {
                      self.response = response;
                     console.log(response.data)
                 });
+        },
+
+         postOnGuzzle(){
+            axios({
+                method: 'post',
+                url: 'api/croquetasON'
+               
+                });   
+        },
+
+         postOffGuzzle(){
+            axios({
+                method: 'post',
+                url: 'api/croquetasOFF'
+                
+               
+                });   
+        },
+
+          aguaOnGuzzle(){
+            axios({
+                method: 'post',
+                url: 'api/aguaON'
+               
+                });   
+        },
+
+         aguaOffGuzzle(){
+            axios({
+                method: 'post',
+                url: 'api/aguaOFF'
+                
+               
+                });   
         }
 
     }
